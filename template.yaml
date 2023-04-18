@@ -1,0 +1,505 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rest-process-object1-depl
+  namespace: default
+  labels:
+    app: rest-process-object1
+spec:
+  selector:
+    matchLabels:
+      app: rest-process-object1
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: rest-process-object1
+    spec:
+      containers:
+        - name: rest-process-object1
+          image: bobput/rest-process-object1:v1-latest
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rest-process-object2-depl
+  namespace: default
+  labels:
+    app: rest-process-object2
+spec:
+  selector:
+    matchLabels:
+      app: rest-process-object2
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: rest-process-object2
+    spec:
+      containers:
+        - name: rest-process-object2
+          image: bobput/rest-process-object2:v1-latest
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rest-process-object3-depl
+  namespace: default
+  labels:
+    app: rest-process-object3
+spec:
+  selector:
+    matchLabels:
+      app: rest-process-object3
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: rest-process-object3
+    spec:
+      containers:
+        - name: rest-process-object3
+          image: bobput/rest-process-object3:v1-latest
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rest-process-object4-depl
+  namespace: default
+  labels:
+    app: rest-process-object4
+spec:
+  selector:
+    matchLabels:
+      app: rest-process-object4
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: rest-process-object4
+    spec:
+      containers:
+        - name: rest-process-object4
+          image: bobput/rest-process-object4:v1-latest
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rest-process-object5-depl
+  namespace: default
+  labels:
+    app: rest-process-object5
+spec:
+  selector:
+    matchLabels:
+      app: rest-process-object5
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: rest-process-object5
+    spec:
+      containers:
+        - name: rest-process-object5
+          image: bobput/rest-process-object5:v1-latest
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rest-process-object6-depl
+  namespace: default
+  labels:
+    app: rest-process-object6
+spec:
+  selector:
+    matchLabels:
+      app: rest-process-object6
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: rest-process-object6
+    spec:
+      containers:
+        - name: rest-process-object6
+          image: bobput/rest-process-object6:v1-latest
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-process-object1-depl
+  namespace: default
+  labels:
+    app: grpc-process-object1
+spec:
+  selector:
+    matchLabels:
+      app: grpc-process-object1
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: grpc-process-object1
+    spec:
+      containers:
+        - name: grpc-process-object1
+          image: bobput/grpc-process-object1:v1-latest
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-process-object2-depl
+  namespace: default
+  labels:
+    app: grpc-process-object2
+spec:
+  selector:
+    matchLabels:
+      app: grpc-process-object2
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: grpc-process-object2
+    spec:
+      containers:
+        - name: grpc-process-object2
+          image: bobput/grpc-process-object2:v1-latest
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-process-object3-depl
+  namespace: default
+  labels:
+    app: grpc-process-object3
+spec:
+  selector:
+    matchLabels:
+      app: grpc-process-object3
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: grpc-process-object3
+    spec:
+      containers:
+        - name: grpc-process-object3
+          image: bobput/grpc-process-object3:v1-latest
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-process-object4-depl
+  namespace: default
+  labels:
+    app: grpc-process-object4
+spec:
+  selector:
+    matchLabels:
+      app: grpc-process-object4
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: grpc-process-object4
+    spec:
+      containers:
+        - name: grpc-process-object4
+          image: bobput/grpc-process-object4:v1-latest
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-process-object5-depl
+  namespace: default
+  labels:
+    app: grpc-process-object5
+spec:
+  selector:
+    matchLabels:
+      app: grpc-process-object5
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: grpc-process-object5
+    spec:
+      containers:
+        - name: grpc-process-object5
+          image: bobput/grpc-process-object5:v1-latest
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-process-object6-depl
+  namespace: default
+  labels:
+    app: grpc-process-object6
+spec:
+  selector:
+    matchLabels:
+      app: grpc-process-object6
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: grpc-process-object6
+    spec:
+      containers:
+        - name: grpc-process-object6
+          image: bobput/grpc-process-object6:v1-latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-process-object1-service
+  namespace: default
+spec:
+  selector:
+    app: grpc-process-object1
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 50051
+      targetPort: 50051
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-process-object2-service
+  namespace: default
+spec:
+  selector:
+    app: grpc-process-object2
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 50052
+      targetPort: 50052
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-process-object3-service
+  namespace: default
+spec:
+  selector:
+    app: grpc-process-object3
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 50053
+      targetPort: 50053
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-process-object4-service
+  namespace: default
+spec:
+  selector:
+    app: grpc-process-object4
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 50054
+      targetPort: 50054
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-process-object5-service
+  namespace: default
+spec:
+  selector:
+    app: grpc-process-object5
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 50055
+      targetPort: 50055
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-process-object6-service
+  namespace: default
+spec:
+  selector:
+    app: grpc-process-object6
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 50056
+      targetPort: 50056
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rest-process-object1-service
+  namespace: default
+spec:
+  selector:
+    app: rest-process-object1
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3001
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rest-process-object2-service
+  namespace: default
+spec:
+  selector:
+    app: rest-process-object2
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3002
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rest-process-object3-service
+  namespace: default
+spec:
+  selector:
+    app: rest-process-object3
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3003
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rest-process-object4-service
+  namespace: default
+spec:
+  selector:
+    app: rest-process-object4
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3004
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rest-process-object5-service
+  namespace: default
+spec:
+  selector:
+    app: rest-process-object5
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3005
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rest-process-object6-service
+  namespace: default
+spec:
+  selector:
+    app: rest-process-object6
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3006
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: process-object-service
+  namespace: default
+spec:
+  selector:
+    app: process-object
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: process-object-depl
+  namespace: default
+  labels:
+    app: process-object
+spec:
+  selector:
+    matchLabels:
+      app: process-object
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: process-object
+    spec:
+      containers:
+        - name: process-object
+          image: bobput/grpc-process-objects:b66419440c453eeeb5d0100a4a79948c687edc54
+          env:
+            - name: GRPC_OBJECT1_ADDR
+              value: grpc-process-object1-service:50051
+            - name: GRPC_OBJECT2_ADDR
+              value: grpc-process-object2-service:50052
+            - name: GRPC_OBJECT3_ADDR
+              value: grpc-process-object3-service:50053
+            - name: GRPC_OBJECT4_ADDR
+              value: grpc-process-object4-service:50054
+            - name: GRPC_OBJECT5_ADDR
+              value: grpc-process-object5-service:50055
+            - name: GRPC_OBJECT6_ADDR
+              value: grpc-process-object6-service:50056
+            - name: REST_OBJECT1_ADDR
+              value: http://rest-process-object1-service/processObject1
+            - name: REST_OBJECT2_ADDR
+              value: http://rest-process-object2-service/processObject2
+            - name: REST_OBJECT3_ADDR
+              value: http://rest-process-object3-service/processObject3
+            - name: REST_OBJECT4_ADDR
+              value: http://rest-process-object4-service/processObject4
+            - name: REST_OBJECT5_ADDR
+              value: http://rest-process-object5-service/processObject5
+            - name: REST_OBJECT6_ADDR
+              value: http://rest-process-object6-service/processObject6
