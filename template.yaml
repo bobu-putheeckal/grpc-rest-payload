@@ -477,7 +477,7 @@ spec:
     spec:
       containers:
         - name: process-object
-          image: bobput/grpc-process-objects:b66419440c453eeeb5d0100a4a79948c687edc54
+          image: bobput/grpc-process-objects:v1-latest
           env:
             - name: GRPC_OBJECT1_ADDR
               value: grpc-process-object1-service:50051
