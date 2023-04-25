@@ -2,7 +2,9 @@ import http from "k6/http";
 // import { sleep } from "k6";
 
 export default function () {
-  const url = "http://192.168.64.3:31548/grpc/processObjects";
+  const url =
+    "http://192.168.64.20:32664/grpc/processObjects?saveObject1=true&saveObject2=true&saveObject3=true&saveObject4=true&saveObject5=true&saveObject6=true";
+  // "http://192.168.64.19:31517/grpc/processObjects";
   const payload = JSON.stringify({
     object1: {
       key1: "Duis dolore anim nisi eiusmod",

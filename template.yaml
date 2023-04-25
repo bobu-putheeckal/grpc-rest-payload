@@ -20,6 +20,9 @@ spec:
       containers:
         - name: rest-process-object1
           image: bobput/rest-process-object1:v1-latest
+          env:
+            - name: MONGODB_URL
+              value: mongodb+srv://bobuwork:Er4tWAID4u8KpPex@cluster0.bzypext.mongodb.net/?retryWrites=true&w=majority
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -43,6 +46,9 @@ spec:
       containers:
         - name: rest-process-object2
           image: bobput/rest-process-object2:v1-latest
+          env:
+            - name: MONGODB_URL
+              value: mongodb+srv://bobuwork:Er4tWAID4u8KpPex@cluster0.bzypext.mongodb.net/?retryWrites=true&w=majority
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -66,6 +72,9 @@ spec:
       containers:
         - name: rest-process-object3
           image: bobput/rest-process-object3:v1-latest
+          env:
+            - name: MONGODB_URL
+              value: mongodb+srv://bobuwork:Er4tWAID4u8KpPex@cluster0.bzypext.mongodb.net/?retryWrites=true&w=majority
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -89,6 +98,9 @@ spec:
       containers:
         - name: rest-process-object4
           image: bobput/rest-process-object4:v1-latest
+          env:
+            - name: MONGODB_URL
+              value: mongodb+srv://bobuwork:Er4tWAID4u8KpPex@cluster0.bzypext.mongodb.net/?retryWrites=true&w=majority
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -112,6 +124,9 @@ spec:
       containers:
         - name: rest-process-object5
           image: bobput/rest-process-object5:v1-latest
+          env:
+            - name: MONGODB_URL
+              value: mongodb+srv://bobuwork:Er4tWAID4u8KpPex@cluster0.bzypext.mongodb.net/?retryWrites=true&w=majority
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -135,6 +150,9 @@ spec:
       containers:
         - name: rest-process-object6
           image: bobput/rest-process-object6:v1-latest
+          env:
+            - name: MONGODB_URL
+              value: mongodb+srv://bobuwork:Er4tWAID4u8KpPex@cluster0.bzypext.mongodb.net/?retryWrites=true&w=majority
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -157,7 +175,11 @@ spec:
     spec:
       containers:
         - name: grpc-process-object1
-          image: bobput/grpc-process-object1:v1-latest
+          # image: bobput/grpc-process-object1:v1-latest
+          image: bobput/grpc-python-process-object1:7fcb0704b96ccc613718e1d5627ea60aa957f74d
+          env:
+            - name: MONGODB_URL
+              value: mongodb+srv://bobuwork:Er4tWAID4u8KpPex@cluster0.bzypext.mongodb.net/?retryWrites=true&w=majority
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -181,6 +203,9 @@ spec:
       containers:
         - name: grpc-process-object2
           image: bobput/grpc-process-object2:v1-latest
+          env:
+            - name: MONGODB_URL
+              value: mongodb+srv://bobuwork:Er4tWAID4u8KpPex@cluster0.bzypext.mongodb.net/?retryWrites=true&w=majority
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -204,6 +229,9 @@ spec:
       containers:
         - name: grpc-process-object3
           image: bobput/grpc-process-object3:v1-latest
+          env:
+            - name: MONGODB_URL
+              value: mongodb+srv://bobuwork:Er4tWAID4u8KpPex@cluster0.bzypext.mongodb.net/?retryWrites=true&w=majority
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -227,6 +255,9 @@ spec:
       containers:
         - name: grpc-process-object4
           image: bobput/grpc-process-object4:v1-latest
+          env:
+            - name: MONGODB_URL
+              value: mongodb+srv://bobuwork:Er4tWAID4u8KpPex@cluster0.bzypext.mongodb.net/?retryWrites=true&w=majority
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -250,6 +281,9 @@ spec:
       containers:
         - name: grpc-process-object5
           image: bobput/grpc-process-object5:v1-latest
+          env:
+            - name: MONGODB_URL
+              value: mongodb+srv://bobuwork:Er4tWAID4u8KpPex@cluster0.bzypext.mongodb.net/?retryWrites=true&w=majority
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -273,6 +307,9 @@ spec:
       containers:
         - name: grpc-process-object6
           image: bobput/grpc-process-object6:v1-latest
+          env:
+            - name: MONGODB_URL
+              value: mongodb+srv://bobuwork:Er4tWAID4u8KpPex@cluster0.bzypext.mongodb.net/?retryWrites=true&w=majority
 ---
 apiVersion: v1
 kind: Service
@@ -492,14 +529,14 @@ spec:
             - name: GRPC_OBJECT6_ADDR
               value: grpc-process-object6-service:50056
             - name: REST_OBJECT1_ADDR
-              value: http://rest-process-object1-service/processObject1
+              value: http://rest-process-object1-service
             - name: REST_OBJECT2_ADDR
-              value: http://rest-process-object2-service/processObject2
+              value: http://rest-process-object2-service
             - name: REST_OBJECT3_ADDR
-              value: http://rest-process-object3-service/processObject3
+              value: http://rest-process-object3-service
             - name: REST_OBJECT4_ADDR
-              value: http://rest-process-object4-service/processObject4
+              value: http://rest-process-object4-service
             - name: REST_OBJECT5_ADDR
-              value: http://rest-process-object5-service/processObject5
+              value: http://rest-process-object5-service
             - name: REST_OBJECT6_ADDR
-              value: http://rest-process-object6-service/processObject6
+              value: http://rest-process-object6-service
