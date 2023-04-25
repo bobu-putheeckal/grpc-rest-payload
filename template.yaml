@@ -175,8 +175,7 @@ spec:
     spec:
       containers:
         - name: grpc-process-object1
-          # image: bobput/grpc-process-object1:v1-latest
-          image: bobput/grpc-python-process-object1:7fcb0704b96ccc613718e1d5627ea60aa957f74d
+          image: bobput/grpc-process-object1:v1-latest
           env:
             - name: MONGODB_URL
               value: mongodb://mongo-service:27017
