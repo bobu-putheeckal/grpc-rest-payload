@@ -22,7 +22,7 @@ spec:
           image: bobput/rest-process-object1:v1-latest
           env:
             - name: MONGODB_URL
-              value: mongodb+srv://bobuwork:Er4tWAID4u8KpPex@cluster0.bzypext.mongodb.net/?retryWrites=true&w=majority
+              value: mongodb://mongo-service:27017
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -48,7 +48,7 @@ spec:
           image: bobput/rest-process-object2:v1-latest
           env:
             - name: MONGODB_URL
-              value: mongodb+srv://bobuwork:Er4tWAID4u8KpPex@cluster0.bzypext.mongodb.net/?retryWrites=true&w=majority
+              value: mongodb://mongo-service:27017
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -74,7 +74,7 @@ spec:
           image: bobput/rest-process-object3:v1-latest
           env:
             - name: MONGODB_URL
-              value: mongodb+srv://bobuwork:Er4tWAID4u8KpPex@cluster0.bzypext.mongodb.net/?retryWrites=true&w=majority
+              value: mongodb://mongo-service:27017
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -100,7 +100,7 @@ spec:
           image: bobput/rest-process-object4:v1-latest
           env:
             - name: MONGODB_URL
-              value: mongodb+srv://bobuwork:Er4tWAID4u8KpPex@cluster0.bzypext.mongodb.net/?retryWrites=true&w=majority
+              value: mongodb://mongo-service:27017
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -126,7 +126,7 @@ spec:
           image: bobput/rest-process-object5:v1-latest
           env:
             - name: MONGODB_URL
-              value: mongodb+srv://bobuwork:Er4tWAID4u8KpPex@cluster0.bzypext.mongodb.net/?retryWrites=true&w=majority
+              value: mongodb://mongo-service:27017
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -152,7 +152,7 @@ spec:
           image: bobput/rest-process-object6:v1-latest
           env:
             - name: MONGODB_URL
-              value: mongodb+srv://bobuwork:Er4tWAID4u8KpPex@cluster0.bzypext.mongodb.net/?retryWrites=true&w=majority
+              value: mongodb://mongo-service:27017
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -179,7 +179,7 @@ spec:
           image: bobput/grpc-python-process-object1:7fcb0704b96ccc613718e1d5627ea60aa957f74d
           env:
             - name: MONGODB_URL
-              value: mongodb+srv://bobuwork:Er4tWAID4u8KpPex@cluster0.bzypext.mongodb.net/?retryWrites=true&w=majority
+              value: mongodb://mongo-service:27017
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -205,7 +205,7 @@ spec:
           image: bobput/grpc-process-object2:v1-latest
           env:
             - name: MONGODB_URL
-              value: mongodb+srv://bobuwork:Er4tWAID4u8KpPex@cluster0.bzypext.mongodb.net/?retryWrites=true&w=majority
+              value: mongodb://mongo-service:27017
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -231,7 +231,7 @@ spec:
           image: bobput/grpc-process-object3:v1-latest
           env:
             - name: MONGODB_URL
-              value: mongodb+srv://bobuwork:Er4tWAID4u8KpPex@cluster0.bzypext.mongodb.net/?retryWrites=true&w=majority
+              value: mongodb://mongo-service:27017
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -257,7 +257,7 @@ spec:
           image: bobput/grpc-process-object4:v1-latest
           env:
             - name: MONGODB_URL
-              value: mongodb+srv://bobuwork:Er4tWAID4u8KpPex@cluster0.bzypext.mongodb.net/?retryWrites=true&w=majority
+              value: mongodb://mongo-service:27017
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -283,7 +283,7 @@ spec:
           image: bobput/grpc-process-object5:v1-latest
           env:
             - name: MONGODB_URL
-              value: mongodb+srv://bobuwork:Er4tWAID4u8KpPex@cluster0.bzypext.mongodb.net/?retryWrites=true&w=majority
+              value: mongodb://mongo-service:27017
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -309,7 +309,7 @@ spec:
           image: bobput/grpc-process-object6:v1-latest
           env:
             - name: MONGODB_URL
-              value: mongodb+srv://bobuwork:Er4tWAID4u8KpPex@cluster0.bzypext.mongodb.net/?retryWrites=true&w=majority
+              value: mongodb://mongo-service:27017
 ---
 apiVersion: v1
 kind: Service
@@ -540,3 +540,54 @@ spec:
               value: http://rest-process-object5-service
             - name: REST_OBJECT6_ADDR
               value: http://rest-process-object6-service
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-deployment
+spec:
+  selector:
+    matchLabels:
+      app: mongo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mongo
+    spec:
+      containers:
+        - name: mongo
+          image: mongo:latest
+          ports:
+            - containerPort: 27017
+          volumeMounts:
+            - name: mongo-persistent-storage
+              mountPath: /data/db
+      volumes:
+        - name: mongo-persistent-storage
+          persistentVolumeClaim:
+            claimName: mongo-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-service
+spec:
+  selector:
+    app: mongo
+  ports:
+    - protocol: TCP
+      port: 27017
+      targetPort: 27017
+  type: ClusterIP
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongo-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi

@@ -3,7 +3,7 @@ import http from "k6/http";
 
 export default function () {
   const url =
-    "http://192.168.64.20:32664/rest/processObjects?saveObject1=true&saveObject2=true&saveObject3=true&saveObject4=true&saveObject5=true&saveObject6=true";
+    "http://127.0.0.1:60766/rest/processObjects?saveObject1=true&saveObject2=true&saveObject3=true&saveObject4=true&saveObject5=true&saveObject6=true";
   // "http://192.168.64.19:31517/rest/processObjects";
   const payload = JSON.stringify({
     object1: {
