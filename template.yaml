@@ -539,3 +539,45 @@ spec:
               value: http://rest-process-object5-service
             - name: REST_OBJECT6_ADDR
               value: http://rest-process-object6-service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-rest-ui-service
+  namespace: default
+spec:
+  selector:
+    app: grpc-rest-ui
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-rest-ui-depl
+  namespace: default
+  labels:
+    app: grpc-rest-ui
+spec:
+  selector:
+    matchLabels:
+      app: grpc-rest-ui
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: grpc-rest-ui
+    spec:
+      containers:
+        - name: grpc-rest-ui-1
+          image: bobput/grpc-rest-ui:d645480bf32a8fc2e3340bf9321338fa939fb1b5
+          env:
+            - name: REST_API
+              value: http://process-object-service/rest/processObjects?saveObject1=true&saveObject2=true&saveObject3=true&saveObject4=true&saveObject5=true&saveObject6=true
+            - name: GRPC_API
+              value: http://process-object-service/grpc/processObjects?saveObject1=true&saveObject2=true&saveObject3=true&saveObject4=true&saveObject5=true&saveObject6=true
